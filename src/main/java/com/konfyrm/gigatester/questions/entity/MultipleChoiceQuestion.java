@@ -50,6 +50,6 @@ public class MultipleChoiceQuestion {
     /**
      * The indices of the correct answers in answers list in JSON format
      */
-    private String correctAnswerIndex;
+    private String correctAnswerIndices;
 
 }
