@@ -4,11 +4,7 @@ import com.konfyrm.gigatester.exams.entity.ExamTemplate;
 import com.konfyrm.gigatester.questions.QuestionLabel;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import java.util.UUID;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -24,7 +20,8 @@ public class OpenQuestion {
      * The entity id
      */
     @Id
-    private UUID uuid;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * The exam to which this question belongs

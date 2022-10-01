@@ -46,7 +46,6 @@ public class CreateMultipleChoiceQuestionRequest {
         StringBuilder correctAnswerIndices = new StringBuilder();
         request.correctAnswerIndices.forEach(ind -> correctAnswerIndices.append(ind).append(";"));
         return MultipleChoiceQuestion.builder()
-                .uuid(UUID.randomUUID())
                 .label(request.label)
                 .content(request.content)
                 .answers(answers.toString())

@@ -3,7 +3,6 @@ package com.konfyrm.gigatester.exams.dto;
 import com.konfyrm.gigatester.exams.entity.ExamTemplate;
 import lombok.*;
 
-import javax.persistence.Id;
 import java.util.UUID;
 
 @Getter
@@ -17,13 +16,12 @@ public class GetExamTemplateResponse {
     /**
      * The unique identifier of the template
      */
-    @Id
-    private UUID uuid;
+    private Long id;
 
     /**
      * Uuid of the subject that the exam template is from
      */
-    private UUID subjectUuid;
+    private Long subjectId;
 
     /**
      * The name of the exam, for instance: "test 1"
@@ -47,8 +45,8 @@ public class GetExamTemplateResponse {
 
     public static GetExamTemplateResponse entityToDto(ExamTemplate entity) {
         return GetExamTemplateResponse.builder()
-                .uuid(entity.getUuid())
-                .subjectUuid(entity.getSubject().getUuid())
+                .id(entity.getId())
+                .subjectId(entity.getSubject().getId())
                 .openQuestionsCount(entity.getOpenQuestionsCount())
                 .closedQuestionsCount(entity.getClosedQuestionsCount())
                 .multipleChoiceQuestionsCount(entity.getMultipleChoiceQuestionsCount())

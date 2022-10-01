@@ -35,7 +35,6 @@ public class CreateExamTemplateRequest {
 
     public static ExamTemplate dtoToEntity(CreateExamTemplateRequest request){
         return ExamTemplate.builder()
-                .uuid(UUID.randomUUID())
                 .name(request.name)
                 .openQuestionsCount(request.openQuestionsCount)
                 .closedQuestionsCount(request.closedQuestionsCount)

@@ -2,12 +2,8 @@ package com.konfyrm.gigatester.exams.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,7 +11,6 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 @Table(name = "subject_groups")
 public class SubjectGroup {
 
@@ -23,11 +18,13 @@ public class SubjectGroup {
      * The unique identifier of the subject group
      */
     @Id
-    private UUID uuid;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * The name of the subject group
      */
+    @Column(name = "subject_group_name")
     private String name;
 
     /**

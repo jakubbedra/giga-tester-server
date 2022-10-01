@@ -17,7 +17,6 @@ public class CreateSubjectRequest {
 
     public static Subject dtoToEntity(CreateSubjectRequest request) {
         return Subject.builder()
-                .uuid(UUID.randomUUID())
                 .name(request.name)
                 .build();
     }

@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -12,7 +11,6 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 @Table(name = "subjects")
 public class Subject {
 
@@ -20,11 +18,13 @@ public class Subject {
      * The unique identifier of the subject
      */
     @Id
-    private UUID uuid;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * The name of the subject
      */
+    @Column(name = "subject_name")
     private String name;
 
     /**

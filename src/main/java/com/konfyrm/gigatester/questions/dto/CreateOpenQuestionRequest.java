@@ -36,7 +36,6 @@ public class CreateOpenQuestionRequest {
 
     public static OpenQuestion dtoToEntity(CreateOpenQuestionRequest request) {
         return OpenQuestion.builder()
-                .uuid(UUID.randomUUID())
                 .label(request.label)
                 .content(request.content)
                 .sampleAnswer(request.sampleAnswer)

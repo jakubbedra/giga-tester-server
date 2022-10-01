@@ -7,7 +7,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,7 +14,6 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 @Table(name = "exam_templates")
 public class ExamTemplate {
 
@@ -23,7 +21,8 @@ public class ExamTemplate {
      * The unique identifier of the template
      */
     @Id
-    private UUID uuid;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * The subject of the exam
@@ -34,6 +33,7 @@ public class ExamTemplate {
     /**
      * The name of the exam, for instance: "test 1"
      */
+    @Column(name = "exam_name")
     private String name;
 
     /**

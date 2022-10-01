@@ -44,7 +44,6 @@ public class CreateClosedQuestionRequest {
         StringBuilder answers = new StringBuilder();
         request.answers.forEach(answer -> answers.append(answer).append("[2137]"));
         return ClosedQuestion.builder()
-                .uuid(UUID.randomUUID())
                 .label(request.label)
                 .content(request.content)
                 .answers(answers.toString())
