@@ -15,11 +15,6 @@ import java.util.UUID;
 public class CreateOpenQuestionRequest {
 
     /**
-     * The uuid of the exam template to which this question belongs to
-     */
-    private UUID examTemplateUuid;
-
-    /**
      * Tells where the question came from
      */
     private QuestionLabel label;

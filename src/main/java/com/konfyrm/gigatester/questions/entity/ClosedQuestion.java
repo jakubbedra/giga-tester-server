@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 @Table(name = "closed_questions")
 public class ClosedQuestion {
 
@@ -37,11 +36,13 @@ public class ClosedQuestion {
     /**
      * The content of the question
      */
+    @Column(length = 10000)
     private String content;
 
     /**
      * Presented answers to the question in json format
      */
+    @Column(length = 10000)
     private String answers;
 
     /**

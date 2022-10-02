@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 @Table(name = "open_questions")
 public class OpenQuestion {
 
@@ -37,11 +36,13 @@ public class OpenQuestion {
     /**
      * The content of the question
      */
+    @Column(length = 10000)
     private String content;
 
     /**
      * Example answer to the question
      */
+    @Column(length = 10000)
     private String sampleAnswer;
 
 }

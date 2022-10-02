@@ -1,9 +1,6 @@
 package com.konfyrm.gigatester.exams.controller;
 
-import com.konfyrm.gigatester.exams.dto.CreateExamTemplateRequest;
-import com.konfyrm.gigatester.exams.dto.CreateSubjectRequest;
-import com.konfyrm.gigatester.exams.dto.GetSubjectResponse;
-import com.konfyrm.gigatester.exams.dto.GetSubjectsResponse;
+import com.konfyrm.gigatester.exams.dto.*;
 import com.konfyrm.gigatester.exams.entity.ExamTemplate;
 import com.konfyrm.gigatester.exams.entity.Subject;
 import com.konfyrm.gigatester.exams.service.ExamTemplateService;
@@ -14,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @RequestMapping("/api/subjects")
 @RestController
@@ -69,6 +65,19 @@ public class SubjectController {
         examTemplate.setSubject(subject.get());
         examTemplateService.saveExamTemplate(examTemplate);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}/templates")
+    public ResponseEntity<GetExamTemplatesResponse> getExamTemplates(
+            @PathVariable("id") Long id
+    ) {
+        Optional<Subject> subject = subjectService.findSubject(id);
+        if (subject.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        List<ExamTemplate> templates = examTemplateService.findAllExamTemplatesBySubject(subject.get());
+        GetExamTemplatesResponse response = GetExamTemplatesResponse.entityToDto(templates);
+        return ResponseEntity.ok(response);
     }
 
 }

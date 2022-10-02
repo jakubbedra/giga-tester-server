@@ -16,11 +16,6 @@ import java.util.UUID;
 public class CreateMultipleChoiceQuestionRequest {
 
     /**
-     * The uuid of the exam to which this question belongs
-     */
-    private UUID examTemplateUuid;
-
-    /**
      * Tells where the question came from
      */
     private QuestionLabel label;

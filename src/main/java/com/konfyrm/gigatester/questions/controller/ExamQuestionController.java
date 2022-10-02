@@ -65,7 +65,7 @@ public class ExamQuestionController {
 
     @PostMapping
     public ResponseEntity<Void> createTasks(
-            @PathParam("examId") Long examId,
+            @PathVariable("examId") Long examId,
             @RequestBody CreateQuestionsRequest request
     ) {
         Optional<ExamTemplate> examTemplate = examTemplateService.findExamTemplate(examId);

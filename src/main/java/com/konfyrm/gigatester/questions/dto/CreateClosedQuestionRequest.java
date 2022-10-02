@@ -5,7 +5,6 @@ import com.konfyrm.gigatester.questions.entity.ClosedQuestion;
 import lombok.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,11 +13,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class CreateClosedQuestionRequest {
-
-    /**
-     * The uuid of the exam to which this question belongs
-     */
-    private UUID examTemplateUuid;
 
     /**
      * Tells where the question came from
